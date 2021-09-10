@@ -1,0 +1,89 @@
+
+<!-- Contact -->
+
+
+
+<div class="center red">
+	<h4> Contact Us</h4>
+</div>
+	<section id="ph-contact" class="ph-section">
+		<div class="red">
+			<form method="POST" action="">
+                {{ form.hidden_tag() }}
+				{{ form.name(placeholder="Name") }}
+
+				{% if form.name.errors %}
+					<div class="invalid-feedback">
+						{% for error in form.name.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% endif %}	
+				{{ form.phone(placeholder="Phone") }}
+
+				{% if form.phone.errors %}
+					<div class="invalid-feedback">
+						{% for error in form.phone.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% endif %}					
+				{{ form.company(placeholder="Company") }}
+
+				{% if form.company.errors %}
+					<div class="invalid-feedback">
+						{% for error in form.company.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% endif %}					
+				{{ form.email(placeholder="Email") }}
+
+				{% if form.email.errors %}
+					<div class="invalid-feedback">
+						{% for error in form.email.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% endif %}					
+				{{ form.subject(placeholder="Subject") }}
+
+				{% if form.subject.errors %}
+					<div class="invalid-feedback">
+						{% for error in form.subject.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% endif %}					
+				<textarea name="description" id="message" placeholder="Problem description" required></textarea>
+				{% if form.description.errors %}
+					<div class="invalid-feedback">
+						{% for error in form.description.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% endif %}					
+				<div class="block_item">
+
+					<input class="date" type="text" id="date" name="date" placeholder="Date" data-format="m/d/Y" data-disabled-day="Sunday" data-max-year="2023" data-min-year="2021"  data-large-mode="true" data-init-set="false" data-theme="date">
+					{% if form.date.errors %}
+					<div class="invalid-feedback">
+						{% for error in form.date.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% endif %}
+					<input type="text" id="time" name="time" placeholder="Time">
+					{% if form.time.errors %}
+					<div class="invalid-feedback">
+						{% for error in form.time.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% endif %}
+				</div>
+                <button class="btn btn--green" type="submit" id="sendForm" value="submit" name="submit">Contact Us</button>
+			</form>
+			<p class="already"> Would you like to Login? <a href="{{ url_for('web.login') }}">Log In</a></p>
+		</div>
+	</section>

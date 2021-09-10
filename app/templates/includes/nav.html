@@ -1,0 +1,19 @@
+<nav>
+    <div class="menu-icon">
+      <i class="fa fa-bars fa-2x"></i>
+    </div>
+
+    <div class="menu">
+      <ul>
+		{% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('web.logout') }}">Logout</a></li>
+            <li><a href="{{ url_for('web.admin') }}">Admin</a></li>
+            <li><a href="{{ url_for('web.new_comment') }}">Comment</a></li>
+
+        {% else %}
+        <li><a href="{{ url_for('web.login') }}">Log In</a></li>
+        <li><a href="{{ url_for('web.contact') }}">Contact Us</a></p>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>

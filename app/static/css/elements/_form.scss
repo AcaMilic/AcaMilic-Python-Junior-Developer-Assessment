@@ -1,0 +1,112 @@
+
+/* Contact Form */
+
+#ph-contact {
+
+		padding: 15rem 0;
+		background-image: linear-gradient(to right bottom,
+			rgba($color-black, 0.6),
+			rgba($color-primary-dark, 0.9));
+		background-size: cover;
+		transform: skewY(-7deg);
+		margin-top: 20rem;
+	
+		@include respond(phone) {
+			margin-top: 10rem;
+		}
+	
+	
+		&>* {
+			transform: skewY(7deg);
+		}
+	
+		@include respond(tab-port) {
+			padding: 10rem 0;
+		}
+
+
+	form{
+		@include flexCenter;
+	}
+
+	input:not([type="submit"]),
+	textarea {
+		width: 100%;
+		padding: 2rem;
+		margin-bottom: 2rem;
+		border: solid 2px $color-grey-dark-2;
+		font-size: $default-font-size;
+		background: transparent;
+		color: $color-primary;
+		box-sizing: border-box;
+		outline: none;
+		border-radius: .5rem;
+		font-family: 'Montserrat', sans-serif;
+		transition: .3s ease-in-out;
+
+		&::placeholder{
+			color: $color-white;
+
+		}
+
+		&:focus{
+			border: solid 2px $color-white;
+		}
+	
+	}
+	textarea {
+		height: 20rem;
+		resize: none;
+		border-radius: .5rem;
+		
+		&:focus{
+			border: solid 2px $color-white;
+		}
+	}
+	.input-holder{
+		font-size: 2rem;
+		text-transform: capitalize;
+	}
+
+}
+
+.already{
+	color: $color-white;
+	font-size: $default-font-size;
+
+	@include respond(tab-port) {
+		margin-top: 4rem;
+	}
+	@include respond(phone) {
+		font-size: 1.4rem;
+	}
+
+
+	a{
+		text-decoration: none;
+		color: $color-primary;
+	}
+}
+
+#success {
+	font-size: 2rem;
+	margin-top: 2rem;
+	color: $color-primary;
+	display: none;
+}
+
+
+.block_item{
+	display: flex;
+	width: 100%;
+
+	.date{
+		margin-right: 2.1rem;
+	}
+
+}
+
+span.error-style {
+	font-size: 2rem;
+	color: $color-red;
+}

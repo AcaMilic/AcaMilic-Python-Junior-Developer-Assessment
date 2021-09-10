@@ -1,0 +1,115 @@
+
+nav {
+    position: relative;
+    width: 100%;
+    // background: $color-primary-dark;
+    background: linear-gradient(to right bottom,
+            rgba($color-primary-dark, 0.6),
+            rgba($color-black, 0.7));
+    // background: linear-gradient(to left bottom,
+    // rgba($color-primary-dark, 0.9),
+    // rgba($color-primary-light, 0.5));
+    z-index: 10292039402920;
+
+    @include respond(tab-port) {
+        background: none;
+    }
+
+    ul {
+        line-height: 2.5rem;
+        max-width: $grid-width;
+        list-style: none;
+        color: #fff;
+        padding: 0;
+        margin: 0 auto;
+        transition: 1s all ease-in-out;
+        text-align: right;
+
+        @include respond(tab-port) {
+            max-width: 100%;
+            max-height: 0px;
+            padding: 0;
+            line-height: 2rem;
+            overflow: hidden;
+        }
+
+        li {
+            text-decoration: none;
+            margin-top: 2.3rem;
+            display: inline-block;
+            padding: 2rem 3.4rem;
+
+            @include respond(tab-port) {
+                box-sizing: border-box;
+                width: 100%;
+                padding: 1.5rem 2rem;
+                text-align: left;
+                margin: 0 auto;
+                border-bottom: 0.1rem solid $color-primary;
+
+                &:last-child {
+                    border: none;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                font-size: 1.7rem;
+                font-weight: 100;
+                color: $color-white;
+
+                &:hover {
+                    color: $color-primary-light;
+                    text-decoration: none;
+                }
+            }
+        }
+
+    }
+
+    .logo {
+        // width: ;
+        position: absolute;
+        text-align: left;
+        margin: 1.5rem auto;
+        // animation: moveInLeftLogo 2s ease-in-out;
+        // animation-delay: 2s;
+        // transition: color 0.4s ease-in-out;
+
+        img {
+            width: 90px;
+
+            @include respond(phone){
+                width: 60%;
+            }
+        }
+
+        @include respond(tab-port) {
+            top: -1rem;
+            width: 40%;
+            margin-left: 2rem;
+        }
+    }
+
+    .menu-icon {
+        line-height: 3.2rem;
+        background: rgba(0, 0, 0, 0.3);
+        text-align: right;
+        box-sizing: border-box;
+        padding: 2.3rem 2.4rem;
+        cursor: pointer;
+        color: #fff;
+        display: none;
+
+        @include respond(tab-port) {
+            display: block;
+        }
+    }
+}
+
+.showing {
+    @include respond(tab-port) {
+        background: rgba(0, 0, 0, 0.3);
+        max-height: 40em;
+    }
+}

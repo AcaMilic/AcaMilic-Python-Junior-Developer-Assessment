@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'includes/head.html' %}
+
+<body class="post-body">
+
+
+        <div class="registration_data red">
+            <h2 class="users">Post</h2>
+            {% block content %}
+            <div class="col-1-of-2">
+              <p><span class="primary-color">Date:</span> {{ post.date_posted.strftime('%d/%m/%Y') }} <span class="primary-color">/</span> <span>{{ post.date_posted.strftime('%H:%M') }}</span></p>
+              <p class=""><span class="primary-color">User:</span> {{ post.author.username }}</p>
+              <p class=""><span class="primary-color">Title:</span> {{ post.title }}</p>
+              <p class=""><span class="primary-color">Comment:</span> {{ post.comment }}</p>
+              <p class="already">Go <a href="{{ url_for('web.home') }}"> back?</a></p>
+            </div>
+            <div class="col-1-of-2">
+            {% if post.author== current_user %}
+                <a class="btn btn--green" href="{{ url_for('web.update_comment', post_id=post.id) }}" >Update</a>
+            </div>
+           {% endif %}
+        {% endblock content %}
+        </div>
+
+
+
+
+    {% include 'includes/scripts.html' %}
+</body>
+</html>

@@ -1,0 +1,36 @@
+
+span.error-style {
+font-size: 2rem;
+color: $color-red;
+}
+
+
+.username_style{
+  font-size: 4rem;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+.flexCenter{
+  @include flexCenter;
+  margin-top: 2rem;
+
+  
+  @include respond(tab-port) {
+    padding: 2rem 0;
+  }
+}
+
+.account_info{
+  color: $color-primary;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+}
+legend.users{
+  margin: 6rem auto;
+  text-align: center;
+  font-size: 3rem;
+  color: $color-primary;
+}
+

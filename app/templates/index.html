@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+{% include 'includes/head.html' %}
+
+
+<body>
+
+	<header class="header">
+		{% include 'includes/nav.html' %}
+		{% if current_user.is_authenticated %}
+		<div class="registration_data red">
+			<h2 class="users">Clients</h2>
+			<div class="col-1-of-3">
+				<h2>Client: {{ contact[0].name }}</h2>
+				<p> <span class="primary-color">Time and date when client registered:</span> {{ contact[0].date }} in {{ contact[0].time }}</p>
+				<p><span class="primary-color">Phone number:</span> {{ contact[0].phone }}</p>
+				<p><span class="primary-color">Company:</span> {{ contact[0].company }}</p>
+				<p><span class="primary-color">Subject: </span>{{ contact[0].subject }}</p>
+				<p><span class="primary-color">Problem description:</span> {{ contact[0].description }}</p>
+			</div>
+			<div class="col-1-of-3">
+				<h2>Client: {{ contact[1].name }}</h2>
+				<p> <span class="primary-color">Time and date when client registered:</span> {{ contact[1].date }} in {{ contact[1].time }}</p>
+				<p><span class="primary-color">Phone number:</span> {{ contact[1].phone }}</p>
+				<p><span class="primary-color">Company:</span> {{ contact[1].company }}</p>
+				<p><span class="primary-color">Subject: </span>{{ contact[1].subject }}</p>
+				<p><span class="primary-color">Problem description:</span> {{ contact[1].description }}</p>
+			</div>
+			<div class="col-1-of-3">
+				<h2>Client: {{ contact[2].name }}</h2>
+				<p> <span class="primary-color">Time and date when client registered:</span> {{ contact[2].date }} in {{ contact[2].time }}</p>
+				<p><span class="primary-color">Phone number:</span> {{ contact[2].phone }}</p>
+				<p><span class="primary-color">Company:</span> {{ contact[2].company }}</p>
+				<p><span class="primary-color">Subject: </span>{{ contact[2].subject }}</p>
+				<p><span class="primary-color">Problem description:</span> {{ contact[2].description }}</p>
+			</div>
+		</div>
+
+
+
+        <div class="registration_data red">
+            <h2 class="users">Posts</h2>
+            {% block content %}
+            {% for post in posts %}
+              <p><span class="primary-color">Date:</span> {{ post.date_posted.strftime('%d/%m/%Y') }} <span class="primary-color">/</span> <span>{{ post.date_posted.strftime('%H:%M') }}</span></p>
+              <p class=""><span class="primary-color">User:</span> {{ post.author.username }}</p>
+              <p class=""><span class="primary-color">Title:</span> {{ post.title }} </p>
+              <p class="comment"><span class="primary-color">Comment:</span> {{ post.comment }}</p>
+              <p class="change_comment">Click <a class="here" href="{{ url_for('web.comment', post_id=post.id) }}"> Here</a>  to edit comment</p>
+            {% endfor %}
+        {% endblock content %}
+        </div>
+
+
+
+
+			{% else %}
+			<div class="centered">
+                <h4 class="header-title">{{ header }}</h4>
+			</div>
+			{% endif %}
+
+	</header>
+
+
+	{% include 'includes/scripts.html' %}
+
+</body>
+</html>

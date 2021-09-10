@@ -1,0 +1,41 @@
+<div class="center red">
+    <h4>{{ header }} <br> <br> Log In</h4>
+    <p>Test user: <br> Username: Test, <br> Email: test@gmail.com <br> Password: 1234</p>
+</div>
+<section id="ph-contact" class="ph-section">
+    <div class="red">
+        {% block content %}
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                        {{ form.username(placeholder='Username')}}
+                        {% if form.username.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        {{ form.email(placeholder='Email')}}
+                        {% if form.email.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        {{ form.password(placeholder='Password')}}
+                        {% if form.password.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+            <button class="btn btn--green" type="submit" id="sendForm" value="submit" name="submit">Login</button>
+            </form>
+                <p class="already"> Would you like to contact Us? <a href="{{ url_for('web.contact') }}">Contact Us</a></p>
+        {% endblock content %}
+    </div>
+</section>

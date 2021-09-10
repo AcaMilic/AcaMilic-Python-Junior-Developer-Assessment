@@ -1,0 +1,32 @@
+<div class="center red">
+    <legend class="users">{{ legend }}</legend>
+</div>
+    <section id="ph-contact" class="ph-section">
+        <div class="red">
+            {% block content %}
+                <form method="POST" action="">
+                    {{ form.hidden_tag() }}
+                            {{ form.title(placeholder='Title')}}
+                            {% if form.title.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.title.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                            {{ form.comment(placeholder='Comment')}}
+                            {% if form.comment.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.comment.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                <button class="btn btn--green" type="submit" id="sendForm" value="submit" name="submit">Submit</button>
+                </form>
+                    <p class="already"> Would you like to go Back? <a href="{{ url_for('web.contact') }}">Back</a></p>
+            {% endblock content %}
+        </div>
+    </section>
