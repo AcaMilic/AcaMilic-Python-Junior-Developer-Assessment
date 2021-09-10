@@ -1,0 +1,7 @@
+my_project/
+my_project\venv
+.idea/
+.DS_Store
+.env
+*.pyc
+__pychache__
